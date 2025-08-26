@@ -82,6 +82,7 @@ int main(int argc, char* argv[])
 
         EndDrawing();
 
+        if (IsKeyPressed(KEY_ESCAPE)) return 0;
         if (IsKeyPressed(KEY_G)) generate(stars, COUNT, WIDTH, HEIGHT);
 
         if (IsKeyPressed(KEY_S))
