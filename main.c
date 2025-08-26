@@ -1,4 +1,4 @@
-#include "./raylib.h"
+#include <raylib.h>
 
 #include <stdlib.h>
 #include <time.h>
@@ -11,7 +11,6 @@ void generate(Vector2 *vec, int count, long width, long height)
     {
         vec[i].x = rand() % width;
         vec[i].y = rand() % height;
-
     }
 }
 
