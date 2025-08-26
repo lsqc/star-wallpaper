@@ -5,6 +5,16 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+void generate(Vector2 *vec, int count, long width, long height)
+{
+    for (int i = 0; i < count; i++)
+    {
+        vec[i].x = rand() % width;
+        vec[i].y = rand() % height;
+
+    }
+}
+
 int main(int argc, char* argv[])
 {
     int COUNT = 400;
@@ -50,15 +60,17 @@ int main(int argc, char* argv[])
 
     Vector2 stars[COUNT]; 
 
-    for (int i = 0; i < COUNT; i++)
-    {
-        Vector2 pos;
-        pos.x = rand() % WIDTH;
-        pos.y = rand() % HEIGHT;
-
-        stars[i] = pos;
-    }
-
+    generate(stars, COUNT, WIDTH, HEIGHT);
+//
+    //for (int i = 0; i < COUNT; i++)
+    //{
+        //Vector2 pos;
+        //pos.x = rand() % WIDTH;
+        //pos.y = rand() % HEIGHT;
+//
+        //stars[i] = pos;
+    //}
+//
     while(!WindowShouldClose())
     {
         BeginDrawing();
@@ -70,6 +82,8 @@ int main(int argc, char* argv[])
         }
 
         EndDrawing();
+
+        if (IsKeyPressed(KEY_G)) generate(stars, COUNT, WIDTH, HEIGHT);
 
         if (IsKeyPressed(KEY_S))
         {
@@ -84,3 +98,4 @@ int main(int argc, char* argv[])
 
     return 0;
 }
+
